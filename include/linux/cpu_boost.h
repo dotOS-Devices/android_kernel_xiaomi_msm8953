@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018, Francisco Franco <franciscofranco.1990@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -10,13 +10,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-#ifndef _LINUX_ZCACHE_H
-#define _LINUX_ZCACHE_H
+#ifndef _CPU_BOOST_H_
+#define _CPU_BOOST_H_
 
-#ifdef CONFIG_ZCACHE
-extern u64 zcache_pages(void);
+#ifdef CONFIG_CPU_BOOST
+void do_input_boost_max(void);
 #else
-u64 zcache_pages(void) { return 0; }
+static inline void do_input_boost_max(void)
+{
+}
 #endif
 
-#endif /* _LINUX_ZCACHE_H */
+#endif /* _CPUBOOST_H_ */
